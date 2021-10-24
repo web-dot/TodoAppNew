@@ -1,0 +1,131 @@
+
+
+.nav{
+    background-color: tomato;
+    margin-bottom: 10px;
+    height: 30px;
+    box-shadow: 0 4px 10px 0 #e0e0e0;
+    border-radius: 3px;
+    border: 1px solid rgb(222, 222, 222);
+}
+
+
+.bigcontainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr ;
+    gap: 20px;
+  }
+  .container{
+    border-radius: 3px;
+  }
+.app{
+    box-shadow: 0 4px 10px 0 #e0e0e0;
+    border: 1px solid rgb(222, 222, 222);
+    border-radius: 3px;
+}
+.illustration{
+    box-shadow: 0 4px 10px 0 #e0e0e0;
+    border: 1px solid rgb(222, 222, 222);
+}
+.title{
+    font-size: 30px;
+    width: 50%;
+    margin: auto;
+}
+.title h1{
+    color: tomato;
+}
+span{
+    color: turquoise;
+    font-style: italic;
+}
+.input{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px 0 #e0e0e0;
+    margin: 10px;
+}
+label{
+    margin: 10px;
+}
+#taskInpt{
+    border-style:solid;
+    border-color: turquoise;
+}
+#submitBtn{
+    width: 70px;
+    margin: 10px;
+    height: 22px;
+    border-style: none;
+    box-shadow: 0 4px 5px 0 #e0e0e0;
+    color: rgb(0, 174, 255);
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid rgb(189, 234, 255);
+
+}
+.display{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.todos,
+.completed{
+    width: 47%;
+    box-shadow: 0 4px 10px 0 #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items:center
+}
+.completed h2{
+    color: rgb(0, 255, 64);
+}
+.todos h2{
+    color:tomato;
+}
+button{
+    margin: 10px;
+}
+#hook{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#hook li{
+    font-size: 50px;
+    color: turquoise;
+    list-style: none;
+}
+.deleteButton{
+    width: 50px;
+    margin: 10px;
+    height: 22px;
+    border-style: none;
+    box-shadow: 0 4px 5px 0 #e0e0e0;
+    color: rgb(0, 174, 255);
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid rgb(189, 234, 255);
+    
+}
+.completedButton{
+    width: 50px;
+    margin: 10px;
+    height: 22px;
+    border-style: none;
+    box-shadow: 0 4px 5px 0 #e0e0e0;
+    color: rgb(0, 255, 64);
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid rgb(189, 234, 255);
+    
+}
+
+
+

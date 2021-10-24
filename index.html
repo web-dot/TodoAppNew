@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <section class="nav">
+
+        </section>
+        <section class="bigcontainer">
+            <div class="illustration">
+                <img src="todo.jpg">
+            </div>
+            <div class="app">
+                <header class="header">
+                    <div class="title">
+                        <h1> TODO<span>>App </span></h1>
+                    </div>
+                </header>
+                <article class="container">
+
+                    <section class="input">
+                        <label>Add Task</label>
+                        <input type="text" id="taskInpt" placeholder="add a task">
+                        <input type="submit" id="submitBtn">
+                    </section>
+
+                    <section class="display">
+
+                        <div class="todos">
+                            <h2>To Dos</h2>
+                            <ul id="result">
+                                
+                            </ul>
+                        </div>
+
+                        <div class="completed">
+                            <h2>Done</h2>
+                            <ul id="completed">
+
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="reward">
+                        <ul id="hook">
+
+                        </ul>
+                    </section>
+
+                </article>
+            </div>
+        </section>
+
+        <script type="text/javascript">
+
+            let inputBtn = document.getElementById('submitBtn');
+            let inputElem = document.getElementById('taskInpt');
+
+            let resultUl = document.getElementById('result');
+
+            let logTask = function(e){
+                let task = inputElem.value;
+                console.log(task);
+            }
+            
+            let addTodo = function(e){
+                let task = inputElem.value;
+                let resultUl = document.getElementById('result');
+                let resultLi = document.createElement('li');
+                resultLi.innerHTML = task;
+                resultLi.className = task;
+                resultLi.appendChild(createDeleteBtn());
+                resultLi.appendChild(createCompletedButton());
+                resultUl.appendChild(resultLi);
+                inputElem.value = '';
+            }
+            
+
+            
+            let displayTodo = function(e){
+                for(let i=0; i<localStorage.length; i++){
+                    let task = localStorage.getItem(localStorage.key(i));
+                    let resultLi = document.createElement('li');
+                    resultLi.innerHTML = task;
+                    resultLi.className = task;
+                    resultLi.appendChild(createDeleteBtn());
+                    resultLi.appendChild(createCompletedButton());
+                    resultUl.appendChild(resultLi);
+                    }
+                }
+               
+        
+            let i=localStorage.length;
+            let addInStorage = function(e){
+                i++;
+                let inputElem = document.getElementById('taskInpt');
+                let task = inputElem.value;
+                localStorage.setItem(task, task);
+            }
+
+            let removeFromStorage = function(e){
+                for(x in localStorage){
+                    
+                }
+            }
+
+
+
+            function remove(el){
+                let element = el;
+                element.remove(el);
+            }
+
+            let createDeleteBtn = function(){
+                var deleteButton = document.createElement('button');
+                deleteButton.textContent = 'delete';
+                deleteButton.className = 'deleteButton';
+                return deleteButton;
+            }
+
+            let createCompletedButton = function(){
+                var completedButton = document.createElement('button');
+                completedButton.textContent = 'done';
+                completedButton.className = 'completedButton';
+                return completedButton;
+            }
+
+
+            
+
+            let setUpEventListener = function(){
+                
+                let todoUl = document.querySelector('ul');
+                todoUl.addEventListener('click', function(event){inputElem.value = '';
+                    console.log(event.target.parentNode.id);
+                    let elementClicked = event.target;
+
+                if(elementClicked.className === 'deleteButton'){
+                    remove(elementClicked.parentNode);let wow = "great, you finished your work!";
+
+                    localStorage.removeItem(elementClicked.parentNode.className);
+                }
+
+                if(elementClicked.className === 'completedButton'){
+                    let compElem = document.getElementById('completed');
+                    let newCompElem = document.createElement('li');
+                    newCompElem.innerHTML = elementClicked.parentNode.className;
+                    compElem.appendChild(newCompElem);
+                    remove(elementClicked.parentNode);
+                    localStorage.removeItem(elementClicked.parentNode.className);
+                    appendHook(event);
+                    setTimeout(deleteHook, 4000);
+                    }
+                });
+            }
+
+                   let wow = "great, you finished your work!";
+                   let hookElem = document.getElementById('hook');
+                   let hookLi = document.createElement('li');
+                   hookLi.innerHTML = wow;
+
+                    let appendHook = function(e){
+                    let elementClicked = e.target;
+                    if(elementClicked.className === 'completedButton'){
+                        hookLi.className = 'liofhook';
+                        hookElem.appendChild(hookLi);  
+                        }   
+                    }
+
+
+                    let deleteHook = function(){
+                        let delLi = document.querySelector(".liofhook");
+                        delLi.remove();
+                    }
+
+            inputBtn.addEventListener('click', logTask);
+            inputBtn.addEventListener('click', addInStorage);
+            inputBtn.addEventListener('click', addTodo);
+
+            displayTodo();
+            setUpEventListener();
+
+
+
+        </script>
+    </body>
+</html>
