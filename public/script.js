@@ -8,6 +8,7 @@
         localStorage.setItem('items', JSON.stringify(itemsArray));
         const data = JSON.parse(localStorage.getItem('items'));
 
+        /*
         let createDeleteBtn = function(){
             var deleteButton = document.createElement('button');
             deleteButton.textContent = 'delete';
@@ -21,13 +22,24 @@
             completedButton.className = 'completedBtn';
             return completedButton;
         }
+        */
+
+        let createBtn = (className, text) => {
+            var deleteButton = document.createElement('button');
+            deleteButton.textContent = text;
+            deleteButton.className = className;
+            return deleteButton;
+        }
+
+
+
 
         const liMaker = text => {
             const li = document.createElement('li');
             li.textContent = text;
             li.className = text;
-            li.appendChild(createDeleteBtn());
-            li.appendChild(createCompletedBtn());
+            li.appendChild(createBtn('deleteBtn', 'delete'));
+            li.appendChild(createBtn('completedBtn', 'done'));
             ul.appendChild(li);
         }
 
