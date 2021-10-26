@@ -39,7 +39,7 @@ span{
     color: turquoise;
     font-style: italic;
 }
-.input{
+form{
     height: 100px;
     display: flex;
     justify-content: center;
